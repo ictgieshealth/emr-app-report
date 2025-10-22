@@ -19,4 +19,5 @@ Route::prefix('report')->group(function () {
     Route::get('cetakTriageKeseluruhan', [ReportController::class, 'cetakTriageKeseluruhan']);
     Route::get('cetakCatatanPemakaianCairanInfus', [ReportController::class, 'cetakCatatanPemakaianCairanInfus']);
     Route::get('cetakSignInBedah', [ReportController::class, 'cetakSignInBedah']);
+    Route::get('cetakTimeOutBedah', [ReportController::class, 'cetakTimeOutBedah']);
 });

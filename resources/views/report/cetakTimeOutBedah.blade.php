@@ -130,8 +130,8 @@
         <br>
         <div style="margin-top: 10px;">
             <fieldset style="margin-top: 10px;border-radius: 10px;">
-                <legend style="font-size: 11pt; font-weight: bold;">SIGN IN</legend>
-                <div ng-repeat="list in listSignin" style="margin-top: 10px;">
+                <legend style="font-size: 11pt; font-weight: bold;">TIME OUT</legend>
+                <div ng-repeat="list in listTimeOut" style="margin-top: 10px;">
                     <b><font style="font-size: 10pt;" ng-bind="list.nama"></font></b>
                     <div ng-repeat="jawab in list.detail" style="margin-top: 5px;">
                         <div ng-switch on="jawab.type">
@@ -159,6 +159,7 @@
                 </div>
             </fieldset>
         </div>
+        <div style="clear: both;"></div>
 
         <hr style="border:2px solid #000;margin-bottom:0px">
         <table width="100%">
@@ -213,70 +214,21 @@ $interpolateProvider.endSymbol(' }}');
             obj: []
         }
 
-        // Data untuk Sign In
-        $scope.listSignin = [
+        $scope.listTimeOut = [
             {
-                "id": 1, "nama": "Apakah pasien telah dikonfirmasi : Identitas, Area :",
+                "id": 1, "nama": "Apakah semua anggota tim dikonfirmasi nama dan perannya ?",
                 "detail": [
-                    { "id": 21001304, "nama": "Ya", "type": "checkbox" },
-                    { "id": 21001305, "nama": "Tidak", "type": "checkbox" },
+                    { "id": 21001322, "nama": "Ya", "type": "checkbox" },
                 ]
             },
             {
-                "id": 2, "nama": "Apakah lokasi operasi diberi tanda ?",
+                "id": 1, "nama": "Dokter Operator, Anestesi dan Perawat secara verbal memberi konfirmasi :",
                 "detail": [
-                    { "id": 21001306, "nama": "Ya", "type": "checkbox" },
-                    { "id": 21001307, "nama": "Tidak", "type": "checkbox" },
+                    { "id": 21001323, "nama": "Siapa Nama Pasien", "type": "checkbox" },
+                    { "id": 21001324, "nama": "Apa tindakan, tempat dan posisi yang digunakan", "type": "checkbox" },
                 ]
             },
-            {
-                "id": 3, "nama": "Apakah mesin dan obat - obatan di cek lengkap ?",
-                "detail": [
-                    { "id": 21001308, "nama": "Ya", "type": "checkbox" },
-                ]
-            },
-            {
-                "id": 4, "nama": "Apakah pasien memiliki alergi ?",
-                "detail": [
-                    { "id": 21001309, "nama": "Tidak", "type": "checkbox" },
-                    { "id": 21001310, "nama": "Ya, Jenis", "type": "checkbox" },
-                ]
-            },
-            {
-                "id": 5, "nama": "Apakah pasien memiliki riwayat penyakit Asma ?",
-                "detail": [
-                    { "id": 21001311, "nama": "Tidak", "type": "checkbox" },
-                ]
-            },
-            {
-                "id": 6, "nama": "Apakah ada resiko aspirasi ?",
-                "detail": [
-                    { "id": 21001312, "nama": "Ya, Peralatan/bantuan yang tersedia : ", "type": "checkbox2" },
-                    { "id": 21001313, "nama": "", "type": "textbox" },
-                ]
-            },
-            {
-                "id": 7, "nama": "Apakah ada rencana pemasangan implant ?",
-                "detail": [
-                    { "id": 21001314, "nama": "Tidak", "type": "checkbox" },
-                    { "id": 21001315, "nama": "Ya, Ket", "type": "checkbox" },
-                    { "id": 21001316, "nama": "", "type": "textbox" },
-                ]
-            },
-            {
-                "id": 8, "nama": "Apakah ada resiko kehilangan darah > 500 ml (7 ml/kg) BB pada anak :",
-                "detail": [
-                    { "id": 21001317, "nama": "Tidak", "type": "checkbox" },
-                    { "id": 21001318, "nama": "Ya, direncanakan pasang dua akses infuse/CVC, & cairan", "type": "checkbox2" },
-                ]
-            },
-            {
-                "id": 9, "nama": "Tanggal",
-                "detail": [
-                    { "id": 21001319, "nama": "", "type": "datetime" },
-                ]
-            },
-        ];
+        ]
 
         var dataLoad = {!! json_encode($res['d']) !!};
         for (var i = 0; i <= dataLoad.length - 1; i++) {
