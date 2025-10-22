@@ -117,7 +117,7 @@
                         <b>Umur</b>
                         <p style="font-size: 11pt; display: inline; margin: 2.1cm;"><b>: {!! $res['d'][0]->umur !!}</b></p>
                         <br>
-                        <b>Nuangan</b>
+                        <b>Ruangan </b>
                         <p style="font-size: 11pt; display: inline; margin: 1.4cm;"><b>: {!! $res['d'][0]->namaruangan !!}</b></p>
                     </td>
 
