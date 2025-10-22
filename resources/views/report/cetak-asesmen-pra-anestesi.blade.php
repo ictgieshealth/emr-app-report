@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Cetak</title>
 
-    @if(stripos(\Request::url(), 'localhost') !== FALSE)
+    @if(stripos(\Request::url(), 'localhost') !== FALSE || stripos(\Request::url(), '192.168.75.233:8080') !== FALSE || stripos(\Request::url(), '192.168.75.233:8080') !== FALSE)
         <link rel="stylesheet" href="{{ asset('css/report/paper.css') }}">
         <link rel="stylesheet" href="{{ asset('css/report/table.css') }}">
         <link rel="stylesheet" href="{{ asset('css/report/tabel.css') }}">
@@ -39,9 +39,9 @@
 
         @media print {
             .section-title {
-                background-color: #f4e28d !important; 
-                -webkit-print-color-adjust: exact; 
-                color-adjust: exact; 
+                background-color: #f4e28d !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
             }
         }
 
@@ -83,7 +83,7 @@
             <tbody>
             <tr>
                 <td width="10%" style="padding: 5px">
-                @if(stripos(\Request::url(), 'localhost') !== FALSE)
+                @if(stripos(\Request::url(), 'localhost') !== FALSE || stripos(\Request::url(), '192.168.75.233:8080') !== FALSE)
                     <img src="{{ asset('img/logo_triadipa.jpeg') }}" alt="" style="width: 90px;">
                 @else
                     <img src="{{ asset('service/img/logo_triadipa.jpeg') }}" alt="" style="width: 90px;">
@@ -93,25 +93,25 @@
                     <b>
                         <span style="font-size: 16px"><u>ASESMEN PRA SEDASI / PRA ANESTESI</u></span>
                     </b>
-                </td>                
+                </td>
             </tbody>
         </table>
         <table cellspacing="0" cellpadding="0" border="0" width="100%">
             <tbody>
-                <tr> 
+                <tr>
                     <td width="10%" style="text-align: justify; border: 1px solid black; vertical-align: top; padding: 5px; font-size: 9pt;">
                         <b>No. RM</b>
-                        <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $res['d'][0]->nocm !!}</b></b></p><br>     
+                        <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $res['d'][0]->nocm !!}</b></b></p><br>
                         <b>Nama</b>
-                        <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $res['d'][0]->namapasien !!}</b></p><br>       
+                        <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $res['d'][0]->namapasien !!}</b></p><br>
                         <b>Jenis Kelamin</b>
-                        <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $res['d'][0]->jeniskelamin !!}</b></p><br>       
+                        <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $res['d'][0]->jeniskelamin !!}</b></p><br>
                         <b>Umur</b>
-                        <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $res['d'][0]->umur !!}</b></p><br>       
+                        <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $res['d'][0]->umur !!}</b></p><br>
                         <b>Ruangan</b>
                         <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $res['d'][0]->namaruangan !!}</b></p>
-                    </td>  
-                </tr>             
+                    </td>
+                </tr>
             </tbody>
         </table>
 
@@ -186,54 +186,54 @@
             <label item="item" style="font-size: 10pt; margin-top: 3px; margin-left: 7px;"><b>Klasifikasi ASA:</b> @{{ item.obj[21000242] }}</label><br>
             <label item="item" style="font-size: 10pt; margin-top: 3px; margin-left: 7px;">
                 <b>Rencana Anastesi:</b>
-                <input type="checkbox" 
-                    @foreach ($res['d'] as $item)                                        
+                <input type="checkbox"
+                    @foreach ($res['d'] as $item)
                     @if ($item->emrdfk == '21000243')
-                        checked 
-                    @endif                                                                          
-                    @endforeach 
+                        checked
+                    @endif
+                    @endforeach
                     ng-model="item.obj[21000243]"/>Sedasi
-                <input type="checkbox" 
-                    @foreach ($res['d'] as $item)                                        
+                <input type="checkbox"
+                    @foreach ($res['d'] as $item)
                     @if ($item->emrdfk == '21000244')
-                        checked 
-                    @endif                                                                          
-                    @endforeach 
+                        checked
+                    @endif
+                    @endforeach
                     ng-model="item.obj[21000244]"/>Moderat
-                <input type="checkbox" 
-                    @foreach ($res['d'] as $item)                                        
+                <input type="checkbox"
+                    @foreach ($res['d'] as $item)
                     @if ($item->emrdfk == '21000245')
-                        checked 
-                    @endif                                                                          
-                    @endforeach 
+                        checked
+                    @endif
+                    @endforeach
                     ng-model="item.obj[21000245]"/>Dalam
-                <input type="checkbox" 
-                    @foreach ($res['d'] as $item)                                        
+                <input type="checkbox"
+                    @foreach ($res['d'] as $item)
                     @if ($item->emrdfk == '21000246')
-                        checked 
-                    @endif                                                                          
-                    @endforeach 
+                        checked
+                    @endif
+                    @endforeach
                     ng-model="item.obj[21000246]"/>Umum
-                <input type="checkbox" 
-                    @foreach ($res['d'] as $item)                                        
+                <input type="checkbox"
+                    @foreach ($res['d'] as $item)
                     @if ($item->emrdfk == '21000247')
-                        checked 
-                    @endif                                                                          
-                    @endforeach 
+                        checked
+                    @endif
+                    @endforeach
                     ng-model="item.obj[21000247]"/>Inhalasi
-                <input type="checkbox" 
-                    @foreach ($res['d'] as $item)                                        
+                <input type="checkbox"
+                    @foreach ($res['d'] as $item)
                     @if ($item->emrdfk == '21000248')
-                        checked 
-                    @endif                                                                          
-                    @endforeach 
+                        checked
+                    @endif
+                    @endforeach
                     ng-model="item.obj[21000248]"/>TIVA
-                <input type="checkbox" 
-                    @foreach ($res['d'] as $item)                                        
+                <input type="checkbox"
+                    @foreach ($res['d'] as $item)
                     @if ($item->emrdfk == '21000249')
-                        checked 
-                    @endif                                                                          
-                    @endforeach 
+                        checked
+                    @endif
+                    @endforeach
                     ng-model="item.obj[21000249]"/>Regional, Jenis @{{item.obj[21000250]}}
             </label><br>
             <label item="item" style="font-size: 10pt; margin-top: 3px; margin-left: 7px;"><b>Obat yang digunakan:</b> @{{ item.obj[21000251] }}</label><br>
@@ -249,7 +249,7 @@
 
         <div style="display: flex; justify-content: space-between;">
             <div style="width: 30%; text-align: center; margin-right: 20px;">
-                
+
             </div>
 
             <div style="width: 30%; text-align: center; border: 1px solid black;">
@@ -258,8 +258,8 @@
                 @forelse($dataimg as $d)
                     @if($d->emrdfk == 1)
                         <img src="{{ $d->image }}" width="75" height="75" alt="TTD" />
-                    @break    
-                    @endif   
+                    @break
+                    @endif
                 @empty
                     <div style="height:75px"></div>
                 @endforelse
@@ -267,7 +267,7 @@
                 <b><font style="font-size: 11pt;" color="#000000">@{{ item.obj[21000257] }}</font></b>
             </div>
         </div>
- 
+
         <hr style="border:2px solid #000;margin-bottom:0px">
         <table width="100%">
             <tr>
@@ -375,7 +375,7 @@
                 $scope.item.obj[dataLoad[i].emrdfk] = res[1]
 
             }
-            
+
             if (dataLoad[i].emrdfk == '3100553' ) {
                 $scope.tglemr = dataLoad[i].value
             }
@@ -387,7 +387,7 @@
             if (dataLoad[i].emrdfk == '3100518' ) {
                 $scope.tglLahirPasien = dataLoad[i].value
             }
-            
+
 
         }
     })
@@ -395,7 +395,7 @@
     // $(document).ready(function () {
     //     window.print();
     // });
-    
+
 </script>
 </body>
 

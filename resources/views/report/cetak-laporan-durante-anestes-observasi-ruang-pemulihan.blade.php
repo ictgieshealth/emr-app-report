@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Report</title>
 
-    @if(stripos(\Request::url(), 'localhost') !== FALSE)
+    @if(stripos(\Request::url(), 'localhost') !== FALSE || stripos(\Request::url(), '192.168.75.233:8080') !== FALSE)
         <link rel="stylesheet" href="{{ asset('css/report/paper.css') }}">
         <link rel="stylesheet" href="{{ asset('css/report/table.css') }}">
         <link rel="stylesheet" href="{{ asset('css/report/tabel.css') }}">
@@ -56,7 +56,7 @@
             <tbody>
             <tr>
                 <td width="10%" style="padding: 5px">
-                @if(stripos(\Request::url(), 'localhost') !== FALSE)
+                @if(stripos(\Request::url(), 'localhost') !== FALSE || stripos(\Request::url(), '192.168.75.233:8080') !== FALSE)
                     <img src="{{ asset('img/logo_triadipa.jpeg') }}" alt="" style="width: 90px;">
                 @else
                     <img src="{{ asset('service/img/logo_triadipa.jpeg') }}" alt="" style="width: 90px;">
@@ -67,23 +67,23 @@
                         <span style="font-size: 16px"><u>OBSERVASI DI RUANG PEMULIHAN</u></span>
                     </b>
                 </td>
-                
+
             </tbody>
         </table>
         <table cellspacing="0" cellpadding="0" border="0" width="100%">
             <tbody>
-            <tr> 
+            <tr>
                 <td width="10%" style="text-align: justify; border: 1px solid black; vertical-align: top; padding: 5px; font-size: 9pt;">
                     <b>No. RM</b>
-                    <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $identitas->nocm !!}</b></b></p><br>     
+                    <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $identitas->nocm !!}</b></b></p><br>
                     <b>Nama</b>
-                    <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $identitas->namapasien !!}</b></p><br>       
+                    <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $identitas->namapasien !!}</b></p><br>
                     <b>Tgl. Lahir</b>
                     <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $identitas->tgllahir !!}</b></p><br>
                     <b>Jenis Kelamin</b>
                     <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $identitas->jeniskelamin !!}</b></p><br>
-                </td>   
-                
+                </td>
+
             </tbody>
         </table>
 
@@ -103,106 +103,106 @@
                     <div class="form-group checkbox">
                         <label class="form-label"><b>Jalan Nafas:</b></label>
                         <label class="form-label">
-                            <input type="checkbox" 
-                                @foreach ($raw as $item)                                        
+                            <input type="checkbox"
+                                @foreach ($raw as $item)
                                 @if ($item->emrdfk == '21020426')
-                                    checked 
-                                @endif                                                                          
-                                @endforeach 
-                                ng-model="item.obj[21020426]"/>Tidak ada masalah 
+                                    checked
+                                @endif
+                                @endforeach
+                                ng-model="item.obj[21020426]"/>Tidak ada masalah
                         </label><br>
                         <label class="form-label"><b>Pernapasan:</b></label>
                         <label class="form-label">
-                            <input type="checkbox" 
-                                @foreach ($raw as $item)                                        
+                            <input type="checkbox"
+                                @foreach ($raw as $item)
                                 @if ($item->emrdfk == '21020426')
-                                    checked 
-                                @endif                                                                          
-                                @endforeach 
+                                    checked
+                                @endif
+                                @endforeach
                                 ng-model="item.obj[21020426]"/>Spontan
                         </label>
                         <label class="form-label">
-                            <input type="checkbox" 
-                                @foreach ($raw as $item)                                        
+                            <input type="checkbox"
+                                @foreach ($raw as $item)
                                 @if ($item->emrdfk == '21020426')
-                                    checked 
-                                @endif                                                                          
-                                @endforeach 
+                                    checked
+                                @endif
+                                @endforeach
                                 ng-model="item.obj[21020426]"/>Dibantu
                         </label>
                     </div>
                     <div class="form-group checkbox">
                         <label class="form-label"><b>Bila Spontan:</b></label>
                         <label class="form-label">
-                            <input type="checkbox" 
-                                @foreach ($raw as $item)                                        
+                            <input type="checkbox"
+                                @foreach ($raw as $item)
                                 @if ($item->emrdfk == '21020426')
-                                    checked 
-                                @endif                                                                          
-                                @endforeach 
-                                ng-model="item.obj[21020426]"/>Adekuat Bersuara 
+                                    checked
+                                @endif
+                                @endforeach
+                                ng-model="item.obj[21020426]"/>Adekuat Bersuara
                         </label><br>
                         <label class="form-label"><b>Pernapasan:</b></label>
                         <label class="form-label">
-                            <input type="checkbox" 
-                                @foreach ($raw as $item)                                        
+                            <input type="checkbox"
+                                @foreach ($raw as $item)
                                 @if ($item->emrdfk == '21020426')
-                                    checked 
-                                @endif                                                                          
-                                @endforeach 
+                                    checked
+                                @endif
+                                @endforeach
                                 ng-model="item.obj[21020426]"/>Penyumbatan
                         </label>
                         <label class="form-label">
-                            <input type="checkbox" 
-                                @foreach ($raw as $item)                                        
+                            <input type="checkbox"
+                                @foreach ($raw as $item)
                                 @if ($item->emrdfk == '21020426')
-                                    checked 
-                                @endif                                                                          
-                                @endforeach 
+                                    checked
+                                @endif
+                                @endforeach
                                 ng-model="item.obj[21020426]"/>Membutuhkan bantuan alat
                         </label>
                     </div>
                     <div class="form-group checkbox">
                         <label class="form-label"><b>Kesadaran:</b></label>
                         <label class="form-label">
-                            <input type="checkbox" 
-                                @foreach ($raw as $item)                                        
+                            <input type="checkbox"
+                                @foreach ($raw as $item)
                                 @if ($item->emrdfk == '21020426')
-                                    checked 
-                                @endif                                                                          
-                                @endforeach 
-                                ng-model="item.obj[21020426]"/>Sadar Betul 
+                                    checked
+                                @endif
+                                @endforeach
+                                ng-model="item.obj[21020426]"/>Sadar Betul
                         </label><br>
                         <label class="form-label"><b>Pernapasan:</b></label>
                         <label class="form-label">
-                            <input type="checkbox" 
-                                @foreach ($raw as $item)                                        
+                            <input type="checkbox"
+                                @foreach ($raw as $item)
                                 @if ($item->emrdfk == '21020426')
-                                    checked 
-                                @endif                                                                          
-                                @endforeach 
+                                    checked
+                                @endif
+                                @endforeach
                                 ng-model="item.obj[21020426]"/>Belum sadar betul
                         </label>
                         <label class="form-label">
-                            <input type="checkbox" 
-                                @foreach ($raw as $item)                                        
+                            <input type="checkbox"
+                                @foreach ($raw as $item)
                                 @if ($item->emrdfk == '21020426')
-                                    checked 
-                                @endif                                                                          
-                                @endforeach 
+                                    checked
+                                @endif
+                                @endforeach
                                 ng-model="item.obj[21020426]"/>Tidur dalam
                         </label>
                     </div>
                     <div class="form-group checkbox">
                         <label class="form-label"><b>Konversi Anestesi:</b></label>
                         <label class="form-label">
-                            <input type="checkbox" 
-                                @foreach ($raw as $item)                                        
+                            <input type="checkbox"
+                                @foreach ($raw as $item)
                                 @if ($item->emrdfk == '21020426')
-                                    checked 
-                                @endif                                                                          
-                                @endforeach 
-                                ng-model="item.obj[21020426]"/>Tidak 
+                                    checked
+                                @endif
+                                @endforeach
+                                ng-model="item.obj[21020426]"/>Tidak
                         </label><br>
                     </div>
                     <div class="form-group">
@@ -303,7 +303,7 @@
                 </tr>
                 <tr>
                     <td style="min-width: 5px; padding: 4px;">
-                        Nadi	
+                        Nadi
                     </td>
                     <td style="min-width: 5px; padding: 4px;">
                         @{{ item.obj[21021856] }}<br />
@@ -338,7 +338,7 @@
                 </tr>
                 <tr>
                     <td style="min-width: 5px; padding: 4px;">
-                        Tekanan Darah	
+                        Tekanan Darah
                     </td>
                     <td style="min-width: 5px; padding: 4px;">
                         @{{ item.obj[21021904] }}<br />
@@ -373,7 +373,7 @@
                 </tr>
                 <tr>
                     <td style="min-width: 5px; padding: 4px;">
-                        SaturasiO2	
+                        SaturasiO2
                     </td>
                     <td style="min-width: 5px; padding: 4px;">
                         @{{ item.obj[22034734] }}<br />
@@ -418,8 +418,8 @@
                         @forelse($dataimg as $d)
                             @if($d->emrdfk == 1)
                                 <img src="{{ $d->image }}" width="75" height="75" alt="TTD" />
-                            @break    
-                            @endif   
+                            @break
+                            @endif
                         @empty
                             <div style="height:75px"></div>
                         @endforelse
@@ -433,8 +433,8 @@
                         @forelse($dataimg as $d)
                             @if($d->emrdfk == 2)
                                 <img src="{{ $d->image }}" width="75" height="75" alt="TTD" />
-                            @break    
-                            @endif   
+                            @break
+                            @endif
                         @empty
                             <div style="height:75px"></div>
                         @endforelse
@@ -464,7 +464,7 @@
 
 
 <script>
-        
+
 </script>
 <script type="text/javascript">
     var baseUrl =
@@ -561,7 +561,7 @@
                 $scope.item.obj[dataLoad[i].emrdfk] = res[1]
 
             }
-            
+
             if (dataLoad[i].emrdfk == '3100553' ) {
                 $scope.tglemr = dataLoad[i].value
             }
@@ -572,11 +572,11 @@
 
             if (dataLoad[i].emrdfk == '3100518' ) {
                 $scope.tglLahirPasien = dataLoad[i].value
-            }   
+            }
         }
 
         ArrayTime.forEach( function(element, index) {
-            arrayTimeFix.push($scope.item.obj[element])  
+            arrayTimeFix.push($scope.item.obj[element])
         })
 
         ArraySuhu.forEach(function(itemSuhu) {
@@ -587,19 +587,19 @@
 
         arrayPernafasan.forEach( function(itemNapas) {
             if ($scope.item.obj[itemNapas] !== undefined && $scope.item.obj[itemNapas] !== null) {
-                arrayPernafasanFix.push($scope.item.obj[itemNapas])                  
+                arrayPernafasanFix.push($scope.item.obj[itemNapas])
             }
         })
 
         arrayNadi.forEach( function(itemNadi) {
             if ($scope.item.obj[itemNadi] !== undefined && $scope.item.obj[itemNadi] !== null) {
-                arrayNadiFix.push($scope.item.obj[itemNadi])                  
+                arrayNadiFix.push($scope.item.obj[itemNadi])
             }
         })
 
         arraySaturasi.forEach( function(itemSaturasi) {
             if ($scope.item.obj[itemSaturasi] !== undefined && $scope.item.obj[itemSaturasi] !== null) {
-                arraySaturasiFix.push($scope.item.obj[itemSaturasi])                  
+                arraySaturasiFix.push($scope.item.obj[itemSaturasi])
             }
         })
 
@@ -607,14 +607,14 @@
             if ($scope.item.obj[item] !== undefined && $scope.item.obj[item] !== null) {
                 var td = $scope.item.obj[parseFloat(item)]
                 console.log(td);
-                
+
                 td = td.split('/')
                 if (td.length == 2) {
                     arraySis[index] = td[0]
                     arrayDis[index] = td[1]
                     console.log(td[0]);
                     console.log(td[1]);
-                }                
+                }
             }
         })
 
@@ -654,7 +654,7 @@
                     fontSize: '11px',
                     colors: ['#304758']
                 }
-            },           
+            },
             stroke: {
                 curve: 'straight'
             },
@@ -677,14 +677,14 @@
                 intersect: false,
                 y: {
                     formatter: function (val) {
-                        return val ? val : "No data"; 
+                        return val ? val : "No data";
                     }
                 }
             },
             markers: {
-                size: 3, 
+                size: 3,
                 hover: {
-                    sizeOffset: 3 
+                    sizeOffset: 3
                 }
             }
         };
@@ -720,7 +720,7 @@
                     fontSize: '11px',
                     colors: ['#304758']
                 }
-            },           
+            },
             stroke: {
                 curve: 'straight'
             },
@@ -743,14 +743,14 @@
                 intersect: false,
                 y: {
                     formatter: function (val) {
-                        return val ? val : "No data"; 
+                        return val ? val : "No data";
                     }
                 }
             },
             markers: {
-                size: 3, 
+                size: 3,
                 hover: {
-                    sizeOffset: 3 
+                    sizeOffset: 3
                 }
             }
         };
@@ -760,7 +760,7 @@
 
     })
 
-    
+
 </script>
 </body>
 

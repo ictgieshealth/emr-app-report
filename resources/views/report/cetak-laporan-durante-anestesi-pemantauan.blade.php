@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Report</title>
 
-    @if(stripos(\Request::url(), 'localhost') !== FALSE)
+    @if(stripos(\Request::url(), 'localhost') !== FALSE || stripos(\Request::url(), '192.168.75.233:8080') !== FALSE)
         <link rel="stylesheet" href="{{ asset('css/report/paper.css') }}">
         <link rel="stylesheet" href="{{ asset('css/report/table.css') }}">
         <link rel="stylesheet" href="{{ asset('css/report/tabel.css') }}">
@@ -89,7 +89,7 @@
             <tbody>
             <tr>
                 <td width="10%" style="padding: 5px">
-                @if(stripos(\Request::url(), 'localhost') !== FALSE)
+                @if(stripos(\Request::url(), 'localhost') !== FALSE || stripos(\Request::url(), '192.168.75.233:8080') !== FALSE)
                     <img src="{{ asset('img/logo_triadipa.jpeg') }}" alt="" style="width: 90px;">
                 @else
                     <img src="{{ asset('service/img/logo_triadipa.jpeg') }}" alt="" style="width: 90px;">
@@ -100,23 +100,23 @@
                         <span style="font-size: 16px"><u>DURANTE ANESTESI PEMANTAUAN</u></span>
                     </b>
                 </td>
-                
+
             </tbody>
         </table>
         <table cellspacing="0" cellpadding="0" border="0" width="100%">
             <tbody>
-            <tr> 
+            <tr>
                 <td width="10%" style="text-align: justify; border: 1px solid black; vertical-align: top; padding: 5px; font-size: 9pt;">
                     <b>No. RM</b>
-                    <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $identitas->nocm !!}</b></b></p><br>     
+                    <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $identitas->nocm !!}</b></b></p><br>
                     <b>Nama</b>
-                    <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $identitas->namapasien !!}</b></p><br>       
+                    <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $identitas->namapasien !!}</b></p><br>
                     <b>Tgl. Lahir</b>
                     <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $identitas->tgllahir !!}</b></p><br>
                     <b>Jenis Kelamin</b>
                     <p style="font-size: 9pt; display: inline; margin: 0.5cm;"><b>: {!! $identitas->jeniskelamin !!}</b></p><br>
-                </td>   
-                
+                </td>
+
             </tbody>
         </table>
 
@@ -207,7 +207,7 @@
                 </tr>
                 <tr>
                     <td style="min-width: 10px; padding: 10px;">
-                        Urin (ml)	
+                        Urin (ml)
                     </td>
                     <td style="min-width: 10px; padding: 10px;">
                         @{{ item.obj[21022961] }}<br />
@@ -343,8 +343,8 @@
                 @forelse($dataimg as $d)
                     @if($d->emrdfk == 1)
                         <img src="{{ $d->image }}" width="75" height="75" alt="TTD" />
-                    @break    
-                    @endif   
+                    @break
+                    @endif
                 @empty
                     <div style="height:75px"></div>
                 @endforelse
@@ -358,8 +358,8 @@
                 @forelse($dataimg as $d)
                     @if($d->emrdfk == 2)
                         <img src="{{ $d->image }}" width="75" height="75" alt="TTD" />
-                    @break    
-                    @endif   
+                    @break
+                    @endif
                 @empty
                     <div style="height:75px"></div>
                 @endforelse
@@ -472,7 +472,7 @@
                 $scope.item.obj[dataLoad[i].emrdfk] = res[1]
 
             }
-            
+
             if (dataLoad[i].emrdfk == '3100553' ) {
                 $scope.tglemr = dataLoad[i].value
             }
@@ -484,7 +484,7 @@
             if (dataLoad[i].emrdfk == '3100518' ) {
                 $scope.tglLahirPasien = dataLoad[i].value
             }
-            
+
 
         }
     })
@@ -492,7 +492,7 @@
     $(document).ready(function () {
         window.print();
     });
-    
+
 </script>
 </body>
 
