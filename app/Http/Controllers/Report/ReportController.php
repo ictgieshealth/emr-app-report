@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Report;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,6 +18,38 @@ class ReportController
         $res['email'] = "Email. " . ($d->alamatemail == null ? "-" : $d->alamatemail);
         $res['website'] = "Website " . ($d->website == null ? "-" : $d->website);
         return $res;
+    }
+
+    public static function getVitalSigns($noRegistrasi = null, $idEmr = 147, $objectidAwal = 4241, $objectidAkhir = 4246)
+    {
+        $query = "SELECT epd.value, epd.emrdfk
+                  FROM emrpasiend_t as epd
+                  INNER JOIN emrpasien_t as ep ON ep.noemr = epd.emrpasienfk
+                  WHERE epd.kdprofile = :kdprofile";
+
+        $params = ['kdprofile' => 44];
+
+        if (!empty($idEmr)) {
+            $query .= " AND epd.emrfk = :emrfk";
+            $params['emrfk'] = $idEmr;
+        }
+
+        if (!empty($noRegistrasi)) {
+            $query .= " AND ep.noregistrasifk = :noregistrasi";
+            $params['noregistrasi'] = $noRegistrasi;
+        }
+
+        if (!empty($objectidAwal) && !empty($objectidAkhir)) {
+            $query .= " AND epd.emrdfk BETWEEN :objectidawal AND :objectidakhir";
+            $params['objectidawal'] = $objectidAwal;
+            $params['objectidakhir'] = $objectidAkhir;
+        }
+
+        $query .= " AND epd.statusenabled = true ORDER BY epd.emrdfk";
+
+        $data = DB::select($query, $params);
+
+        return $data;
     }
 
     public function cetakAsesmenAwalKeperawatanIGD(Request $request)
@@ -61,7 +94,9 @@ class ReportController
 
         foreach ($data as $z) {
             if (($z->type ?? null) === 'datetime' && !empty($z->value)) {
-                $z->value = date('Y-m-d H:i:s', strtotime($z->value));
+                $z->value = Carbon::parse($z->value)
+                    ->setTimezone('Asia/Jakarta')
+                    ->format('Y-m-d H:i:s');
             }
         }
 
@@ -129,7 +164,9 @@ class ReportController
 
         foreach ($data as $z) {
             if (($z->type ?? null) === 'datetime' && !empty($z->value)) {
-                $z->value = date('Y-m-d H:i:s', strtotime($z->value));
+                $z->value = Carbon::parse($z->value)
+                    ->setTimezone('Asia/Jakarta')
+                    ->format('Y-m-d H:i:s');
             }
         }
 
@@ -198,7 +235,9 @@ class ReportController
 
         foreach ($data as $z) {
             if (($z->type ?? null) === 'datetime' && !empty($z->value)) {
-                $z->value = date('Y-m-d H:i:s', strtotime($z->value));
+                $z->value = Carbon::parse($z->value)
+                    ->setTimezone('Asia/Jakarta')
+                    ->format('Y-m-d H:i:s');
             }
         }
         $pageWidth = 500;
@@ -639,11 +678,12 @@ class ReportController
             'norec' => $norec,
             'emrfk' => 290011,
         ]);
-        // dd($data);
 
         foreach ($data as $z) {
             if (($z->type ?? null) === 'datetime' && !empty($z->value)) {
-                $z->value = date('Y-m-d H:i:s', strtotime($z->value));
+                $z->value = Carbon::parse($z->value)
+                    ->setTimezone('Asia/Jakarta')
+                    ->format('Y-m-d H:i:s');
             }
         }
 
@@ -666,7 +706,12 @@ class ReportController
             ->where('emrp.emrfk', 149)
             ->get();
 
-        return view('report.cetakTriageKeseluruhan', compact('res', 'pageWidth', 'dataimg'));
+        $vitalSigns = self::getVitalSigns(
+            $noRegistrasi = $data[0]->noregistrasi,
+        );
+        // dd($data[0]->noregistrasi);
+
+        return view('report.cetakTriageKeseluruhan', compact('res', 'pageWidth', 'dataimg', 'vitalSigns'));
     }
 
     public function cetakCatatanPemakaianCairanInfus(Request $request)
@@ -711,7 +756,9 @@ class ReportController
 
         foreach ($data as $z) {
             if (($z->type ?? null) === 'datetime' && !empty($z->value)) {
-                $z->value = date('Y-m-d H:i:s', strtotime($z->value));
+                $z->value = Carbon::parse($z->value)
+                    ->setTimezone('Asia/Jakarta')
+                    ->format('Y-m-d H:i:s');
             }
         }
 
@@ -780,7 +827,9 @@ class ReportController
 
         foreach ($data as $z) {
             if (($z->type ?? null) === 'datetime' && !empty($z->value)) {
-                $z->value = date('Y-m-d H:i:s', strtotime($z->value));
+                $z->value = Carbon::parse($z->value)
+                    ->setTimezone('Asia/Jakarta')
+                    ->format('Y-m-d H:i:s');
             }
         }
 
@@ -849,7 +898,9 @@ class ReportController
 
         foreach ($data as $z) {
             if (($z->type ?? null) === 'datetime' && !empty($z->value)) {
-                $z->value = date('Y-m-d H:i:s', strtotime($z->value));
+                $z->value = Carbon::parse($z->value)
+                    ->setTimezone('Asia/Jakarta')
+                    ->format('Y-m-d H:i:s');
             }
         }
 
@@ -918,7 +969,9 @@ class ReportController
 
         foreach ($data as $z) {
             if (($z->type ?? null) === 'datetime' && !empty($z->value)) {
-                $z->value = date('Y-m-d H:i:s', strtotime($z->value));
+                $z->value = Carbon::parse($z->value)
+                    ->setTimezone('Asia/Jakarta')
+                    ->format('Y-m-d H:i:s');
             }
         }
 

@@ -142,10 +142,7 @@
                         <font style="font-size: 11pt;" color="#000000">:</font>
                     </td>
                     <td width="74%">
-                        <input style="width: 40%;" type="text" ng-model="item.obj[1000150]"
-                            @foreach ($res['d'] as $item)
-                                            @if ($item->emrdfk == '1000150') value="{{ $item->value }}" @endif @endforeach
-                            placeholder="yyyy-MM-dd HH:mm" />
+                        <label style="font-size: 10pt;" ng-bind="item.obj[1000150]"></label>
                     </td>
                 </tr>
                 <tr>
@@ -155,86 +152,51 @@
                 </tr>
                 <tr>
                     <td width="25%">
-                        <font style="font-size: 11pt;" color="#000000">Tekanan Darah (TD)</font>
+                        <font style="font-size: 11pt;" color="#000000">Tekanan Darah</font>
                     </td>
                     <td width="1%">
                         <font style="font-size: 11pt;" color="#000000">:</font>
                     </td>
                     <td width="74%">
-                        <input style="width: 30%;" type="text" ng-model="item.obj[21020481]"
-                            @foreach ($res['d'] as $item)
-                                            @if ($item->emrdfk == '21020481') value="{{ $item->value }}" @endif @endforeach />
+                        <label style="font-size: 10pt;" ng-bind="item.obj[1000152]"></label>
                         <font style="font-size: 11pt; margin-left: 5px;" color="#000000">mmHg</font>
                     </td>
                 </tr>
                 <tr>
                     <td width="25%">
-                        <font style="font-size: 11pt;" color="#000000">Suhu (S)</font>
+                        <font style="font-size: 11pt;" color="#000000">Suhu</font>
                     </td>
                     <td width="1%">
                         <font style="font-size: 11pt;" color="#000000">:</font>
                     </td>
                     <td width="74%">
-                        <input style="width: 30%;" type="text" ng-model="item.obj[21020482]"
-                            @foreach ($res['d'] as $item)
-                                            @if ($item->emrdfk == '21020482') value="{{ $item->value }}" @endif @endforeach />
+                        <label style="font-size: 10pt;" ng-bind="item.obj[1000155]"></label>
                         <font style="font-size: 11pt; margin-left: 5px;" color="#000000">°C</font>
                     </td>
                 </tr>
                 <tr>
                     <td width="25%">
-                        <font style="font-size: 11pt;" color="#000000">Nadi (N)</font>
+                        <font style="font-size: 11pt;" color="#000000">Frek Nadi</font>
                     </td>
                     <td width="1%">
                         <font style="font-size: 11pt;" color="#000000">:</font>
                     </td>
                     <td width="74%">
-                        <input style="width: 30%;" type="text" ng-model="item.obj[21020483]"
-                            @foreach ($res['d'] as $item)
-                                            @if ($item->emrdfk == '21020483') value="{{ $item->value }}" @endif @endforeach />
+
+                        <label style="font-size: 10pt;" ng-bind="item.obj[1000153]"></label>
                         <font style="font-size: 11pt; margin-left: 5px;" color="#000000">x/menit</font>
                     </td>
                 </tr>
                 <tr>
                     <td width="25%">
-                        <font style="font-size: 11pt;" color="#000000">Respirasi (R)</font>
+                        <font style="font-size: 11pt;" color="#000000">Frek Nafas</font>
                     </td>
                     <td width="1%">
                         <font style="font-size: 11pt;" color="#000000">:</font>
                     </td>
                     <td width="74%">
-                        <input style="width: 30%;" type="text" ng-model="item.obj[21020484]"
-                            @foreach ($res['d'] as $item)
-                                            @if ($item->emrdfk == '21020484') value="{{ $item->value }}" @endif @endforeach />
+                        <label style="font-size: 10pt;" ng-bind="item.obj[1000154]"></label>
                         <font style="font-size: 11pt; margin-left: 5px;" color="#000000">x/menit</font>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="25%">
-                        <font style="font-size: 11pt;" color="#000000">Berat Badan (BB)</font>
-                    </td>
-                    <td width="1%">
-                        <font style="font-size: 11pt;" color="#000000">:</font>
-                    </td>
-                    <td width="74%">
-                        <input style="width: 30%;" type="text" ng-model="item.obj[21020485]"
-                            @foreach ($res['d'] as $item)
-                                            @if ($item->emrdfk == '21020485') value="{{ $item->value }}" @endif @endforeach />
-                        <font style="font-size: 11pt; margin-left: 5px;" color="#000000">Kg</font>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="25%">
-                        <font style="font-size: 11pt;" color="#000000">Tinggi Badan (TB)</font>
-                    </td>
-                    <td width="1%">
-                        <font style="font-size: 11pt;" color="#000000">:</font>
-                    </td>
-                    <td width="74%">
-                        <input style="width: 30%;" type="text" ng-model="item.obj[21020486]"
-                            @foreach ($res['d'] as $item)
-                                            @if ($item->emrdfk == '21020486') value="{{ $item->value }}" @endif @endforeach />
-                        <font style="font-size: 11pt; margin-left: 5px;" color="#000000">Cm</font>
                     </td>
                 </tr>
             </tbody>
@@ -248,19 +210,24 @@
                     <th style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold;">
                         KRITERIA TRIAGE
                     </th>
-                    <th style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ff6b6b; color: white;">
+                    <th
+                        style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ff6b6b; color: white;">
                         ATS 1
                     </th>
-                    <th style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ff6b6b; color: white;">
+                    <th
+                        style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ff6b6b; color: white;">
                         ATS 2
                     </th>
-                    <th style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ffd93d; color: black;">
+                    <th
+                        style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ffd93d; color: black;">
                         ATS 3
                     </th>
-                    <th style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ffd93d; color: black;">
+                    <th
+                        style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ffd93d; color: black;">
                         ATS 4
                     </th>
-                    <th style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #6bcf7f; color: white;">
+                    <th
+                        style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #6bcf7f; color: white;">
                         ATS 5
                     </th>
                 </tr>
@@ -268,19 +235,24 @@
                     <th style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold;">
                         KRITERIA
                     </th>
-                    <th style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ff6b6b; color: white;">
+                    <th
+                        style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ff6b6b; color: white;">
                         RESUSITASI
                     </th>
-                    <th style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ff6b6b; color: white;">
+                    <th
+                        style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ff6b6b; color: white;">
                         EMERGENCY
                     </th>
-                    <th style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ffd93d; color: black;">
+                    <th
+                        style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ffd93d; color: black;">
                         URGENT
                     </th>
-                    <th style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ffd93d; color: black;">
+                    <th
+                        style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #ffd93d; color: black;">
                         SEMI URGENT
                     </th>
-                    <th style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #6bcf7f; color: white;">
+                    <th
+                        style="border: 1px solid black; text-align: center; padding: 5px; font-weight: bold; background-color: #6bcf7f; color: white;">
                         FALSE EMERGENCY
                     </th>
                 </tr>
@@ -292,40 +264,35 @@
                     <td style="border: 1px solid black; padding: 5px;">
                         <input type="checkbox"
                             @foreach ($res['d'] as $item)
-                                @if ($item->emrdfk == '1000156') checked @endif
-                            @endforeach
+                                @if ($item->emrdfk == '1000156') checked @endif @endforeach
                             ng-model="item.obj[1000156]" />
                         <font style="font-size: 10pt;">Sumbatan</font>
                     </td>
                     <td style="border: 1px solid black; padding: 5px;">
                         <input type="checkbox"
                             @foreach ($res['d'] as $item)
-                                @if ($item->emrdfk == '1000157') checked @endif
-                            @endforeach
+                                @if ($item->emrdfk == '1000157') checked @endif @endforeach
                             ng-model="item.obj[1000157]" />
                         <font style="font-size: 10pt;">Stridor/Distres</font>
                     </td>
                     <td style="border: 1px solid black; padding: 5px;">
                         <input type="checkbox"
                             @foreach ($res['d'] as $item)
-                                @if ($item->emrdfk == '1000158') checked @endif
-                            @endforeach
+                                @if ($item->emrdfk == '1000158') checked @endif @endforeach
                             ng-model="item.obj[1000158]" />
                         <font style="font-size: 10pt;">Bebas</font>
                     </td>
                     <td style="border: 1px solid black; padding: 5px;">
                         <input type="checkbox"
                             @foreach ($res['d'] as $item)
-                                @if ($item->emrdfk == '1000159') checked @endif
-                            @endforeach
+                                @if ($item->emrdfk == '1000159') checked @endif @endforeach
                             ng-model="item.obj[1000159]" />
                         <font style="font-size: 10pt;">Bebas</font>
                     </td>
                     <td style="border: 1px solid black; padding: 5px;">
                         <input type="checkbox"
                             @foreach ($res['d'] as $item)
-                                @if ($item->emrdfk == '1000160') checked @endif
-                            @endforeach
+                                @if ($item->emrdfk == '1000160') checked @endif @endforeach
                             ng-model="item.obj[1000160]" />
                         <font style="font-size: 10pt;">Bebas</font>
                     </td>
@@ -333,37 +300,34 @@
 
                 <!-- BREATHING (B) -->
                 <tr>
-                    <td style="border: 1px solid black; padding: 5px; font-weight: bold; vertical-align: top;">BREATHING (B)</td>
+                    <td style="border: 1px solid black; padding: 5px; font-weight: bold; vertical-align: top;">
+                        BREATHING (B)</td>
                     <td style="border: 1px solid black; padding: 5px; vertical-align: top;">
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000161') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000161') checked @endif @endforeach
                                 ng-model="item.obj[1000161]" />
                             <font style="font-size: 10pt;">Henti Nafas</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000162') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000162') checked @endif @endforeach
                                 ng-model="item.obj[1000162]" />
                             <font style="font-size: 10pt;">Nafas 10x/m</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000163') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000163') checked @endif @endforeach
                                 ng-model="item.obj[1000163]" />
                             <font style="font-size: 10pt;">Sianosis</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000164') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000164') checked @endif @endforeach
                                 ng-model="item.obj[1000164]" />
                             <font style="font-size: 10pt;">Distres pernafasan (Nafas >= 32/m)</font>
                         </div>
@@ -372,16 +336,14 @@
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000165') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000165') checked @endif @endforeach
                                 ng-model="item.obj[1000165]" />
                             <font style="font-size: 10pt;">Disres pernafasan (Nafas >= 32/m)</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000166') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000166') checked @endif @endforeach
                                 ng-model="item.obj[1000166]" />
                             <font style="font-size: 10pt;">Wheezing</font>
                         </div>
@@ -390,16 +352,14 @@
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000167') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000167') checked @endif @endforeach
                                 ng-model="item.obj[1000167]" />
                             <font style="font-size: 10pt;">Nafas 24-32x/m</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000168') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000168') checked @endif @endforeach
                                 ng-model="item.obj[1000168]" />
                             <font style="font-size: 10pt;">Wheezing</font>
                         </div>
@@ -408,8 +368,7 @@
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000169') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000169') checked @endif @endforeach
                                 ng-model="item.obj[1000169]" />
                             <font style="font-size: 10pt;">Nafas Normal: 21-24x/m</font>
                         </div>
@@ -418,8 +377,7 @@
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000170') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000170') checked @endif @endforeach
                                 ng-model="item.obj[1000170]" />
                             <font style="font-size: 10pt;">Nafas Normal: 12-20/m</font>
                         </div>
@@ -428,37 +386,34 @@
 
                 <!-- CIRCULATION (C) -->
                 <tr>
-                    <td style="border: 1px solid black; padding: 5px; font-weight: bold; vertical-align: top;">CIRCULATION</td>
+                    <td style="border: 1px solid black; padding: 5px; font-weight: bold; vertical-align: top;">
+                        CIRCULATION</td>
                     <td style="border: 1px solid black; padding: 5px; vertical-align: top;">
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000171') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000171') checked @endif @endforeach
                                 ng-model="item.obj[1000171]" />
                             <font style="font-size: 10pt;">Henti Jantung</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000172') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000172') checked @endif @endforeach
                                 ng-model="item.obj[1000172]" />
                             <font style="font-size: 10pt;">Nadi tidak teraba</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000173') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000173') checked @endif @endforeach
                                 ng-model="item.obj[1000173]" />
                             <font style="font-size: 10pt;">Pucat/Akral dingin</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000174') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000174') checked @endif @endforeach
                                 ng-model="item.obj[1000174]" />
                             <font style="font-size: 10pt;">Kejang berkepanjangan</font>
                         </div>
@@ -467,104 +422,91 @@
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000175') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000175') checked @endif @endforeach
                                 ng-model="item.obj[1000175]" />
                             <font style="font-size: 10pt;">Nadi teraba lemah</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000176') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000176') checked @endif @endforeach
                                 ng-model="item.obj[1000176]" />
                             <font style="font-size: 10pt;">Nadi < 50x/m</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000177') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000177') checked @endif @endforeach
                                 ng-model="item.obj[1000177]" />
                             <font style="font-size: 10pt;">Nadi > 150x/m</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000178') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000178') checked @endif @endforeach
                                 ng-model="item.obj[1000178]" />
                             <font style="font-size: 10pt;">Nadi teraba lemah</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000179') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000179') checked @endif @endforeach
                                 ng-model="item.obj[1000179]" />
                             <font style="font-size: 10pt;">Pucat/Akral dingin</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000180') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000180') checked @endif @endforeach
                                 ng-model="item.obj[1000180]" />
                             <font style="font-size: 10pt;">Hemiparese/afasia</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000181') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000181') checked @endif @endforeach
                                 ng-model="item.obj[1000181]" />
                             <font style="font-size: 10pt;">CRT > 2 detik</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000182') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000182') checked @endif @endforeach
                                 ng-model="item.obj[1000182]" />
                             <font style="font-size: 10pt;">TD sistolik < 100 mmHg</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000183') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000183') checked @endif @endforeach
                                 ng-model="item.obj[1000183]" />
                             <font style="font-size: 10pt;">TD diastolik < 60 mmHg</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000184') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000184') checked @endif @endforeach
                                 ng-model="item.obj[1000184]" />
                             <font style="font-size: 10pt;">Nyeri akut (> 8)</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000185') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000185') checked @endif @endforeach
                                 ng-model="item.obj[1000185]" />
                             <font style="font-size: 10pt;">Perdarahan akut</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000186') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000186') checked @endif @endforeach
                                 ng-model="item.obj[1000186]" />
                             <font style="font-size: 10pt;">Multiple trauma/Fraktur</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000187') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000187') checked @endif @endforeach
                                 ng-model="item.obj[1000187]" />
                             <font style="font-size: 10pt;">Suhu > 39 C</font>
                         </div>
@@ -573,64 +515,56 @@
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000188') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000188') checked @endif @endforeach
                                 ng-model="item.obj[1000188]" />
                             <font style="font-size: 10pt;">Nadi: 120-150x/m</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000189') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000189') checked @endif @endforeach
                                 ng-model="item.obj[1000189]" />
                             <font style="font-size: 10pt;">TD sistolik > 160 mmHg</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000190') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000190') checked @endif @endforeach
                                 ng-model="item.obj[1000190]" />
                             <font style="font-size: 10pt;">TD diastolik > 100 mmHg</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000191') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000191') checked @endif @endforeach
                                 ng-model="item.obj[1000191]" />
                             <font style="font-size: 10pt;">Perdarahan sedang</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000192') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000192') checked @endif @endforeach
                                 ng-model="item.obj[1000192]" />
                             <font style="font-size: 10pt;">Muntah persisten</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000193') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000193') checked @endif @endforeach
                                 ng-model="item.obj[1000193]" />
                             <font style="font-size: 10pt;">Dehidrasi</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000194') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000194') checked @endif @endforeach
                                 ng-model="item.obj[1000194]" />
                             <font style="font-size: 10pt;">Kejang tapi sadar</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000195') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000195') checked @endif @endforeach
                                 ng-model="item.obj[1000195]" />
                             <font style="font-size: 10pt;">Nyeri sedang sampai berat</font>
                         </div>
@@ -639,56 +573,49 @@
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000196') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000196') checked @endif @endforeach
                                 ng-model="item.obj[1000196]" />
                             <font style="font-size: 10pt;">Nadi: 100 - < 120x/m</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000197') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000197') checked @endif @endforeach
                                 ng-model="item.obj[1000197]" />
                             <font style="font-size: 10pt;">TD sistolik >= 120 - 140 mmHg</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000198') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000198') checked @endif @endforeach
                                 ng-model="item.obj[1000198]" />
                             <font style="font-size: 10pt;">TD diastolik >= 80 - 100 mmHg</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000199') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000199') checked @endif @endforeach
                                 ng-model="item.obj[1000199]" />
                             <font style="font-size: 10pt;">Perdarahan dingin</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000200') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000200') checked @endif @endforeach
                                 ng-model="item.obj[1000200]" />
                             <font style="font-size: 10pt;">Cedera kepala ringan</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000201') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000201') checked @endif @endforeach
                                 ng-model="item.obj[1000201]" />
                             <font style="font-size: 10pt;">Nyeri ringan sampai sedang</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000202') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000202') checked @endif @endforeach
                                 ng-model="item.obj[1000202]" />
                             <font style="font-size: 10pt;">Muntah/diare tanpa dehidrasi</font>
                         </div>
@@ -697,24 +624,21 @@
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000203') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000203') checked @endif @endforeach
                                 ng-model="item.obj[1000203]" />
                             <font style="font-size: 10pt;">Nadi Normal: 60-100x/m</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000204') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000204') checked @endif @endforeach
                                 ng-model="item.obj[1000204]" />
                             <font style="font-size: 10pt;">TD Normal (sistolik 120, diastolik 80 mmHg)</font>
                         </div>
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000205') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000205') checked @endif @endforeach
                                 ng-model="item.obj[1000205]" />
                             <font style="font-size: 10pt;">Luka ringan</font>
                         </div>
@@ -723,13 +647,13 @@
 
                 <!-- DISSABILITY (D) -->
                 <tr>
-                    <td style="border: 1px solid black; padding: 5px; font-weight: bold; vertical-align: top;">DISSABILITY (D)</td>
+                    <td style="border: 1px solid black; padding: 5px; font-weight: bold; vertical-align: top;">
+                        DISSABILITY (D)</td>
                     <td style="border: 1px solid black; padding: 5px; vertical-align: top;">
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000206') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000206') checked @endif @endforeach
                                 ng-model="item.obj[1000206]" />
                             <font style="font-size: 10pt;">GCS < 9</font>
                         </div>
@@ -738,8 +662,7 @@
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000207') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000207') checked @endif @endforeach
                                 ng-model="item.obj[1000207]" />
                             <font style="font-size: 10pt;">GCS 9 - 12</font>
                         </div>
@@ -748,8 +671,7 @@
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000208') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000208') checked @endif @endforeach
                                 ng-model="item.obj[1000208]" />
                             <font style="font-size: 10pt;">GCS > 12</font>
                         </div>
@@ -758,8 +680,7 @@
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000209') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000209') checked @endif @endforeach
                                 ng-model="item.obj[1000209]" />
                             <font style="font-size: 10pt;">GCS 15</font>
                         </div>
@@ -768,8 +689,7 @@
                         <div style="margin-bottom: 5px;">
                             <input type="checkbox"
                                 @foreach ($res['d'] as $item)
-                                    @if ($item->emrdfk == '1000210') checked @endif
-                                @endforeach
+                                    @if ($item->emrdfk == '1000210') checked @endif @endforeach
                                 ng-model="item.obj[1000210]" />
                             <font style="font-size: 10pt;">GCS 15</font>
                         </div>
@@ -859,6 +779,7 @@ $interpolateProvider.endSymbol(' }}');
             obj: []
         }
         var dataLoad = {!! json_encode($res['d']) !!};
+        var dataVS = {!! json_encode($vitalSigns) !!};
         for (var i = 0; i <= dataLoad.length - 1; i++) {
 
             if (dataLoad[i].type == "textbox") {
@@ -932,6 +853,42 @@ $interpolateProvider.endSymbol(' }}');
                 $scope.tglLahirPasien = dataLoad[i].value
             }
 
+            if ($scope.item.obj[1000152]==undefined) {
+                for (let i = 0; i < dataVS.length; i++) {
+                    const element = dataVS[i];
+                    if (element.emrdfk == 4241) {
+                        $scope.item.obj[1000152] = element.value //Tekanan Darah
+                        break;
+                    }
+                }
+            }
+            if ($scope.item.obj[1000155]==undefined) {
+                for (let i = 0; i < dataVS.length; i++) {
+                    const element = dataVS[i];
+                    if (element.emrdfk == 4244) {
+                        $scope.item.obj[1000155] = element.value //Suhu
+                        break;
+                    }
+                }
+            }
+            if ($scope.item.obj[1000153]==undefined) {
+                for (let i = 0; i < dataVS.length; i++) {
+                    const element = dataVS[i];
+                    if (element.emrdfk == 4245) {
+                        $scope.item.obj[1000153] = element.value //nadi
+                        break;
+                    }
+                }
+            }
+            if ($scope.item.obj[1000154]==undefined) {
+                for (let i = 0; i < dataVS.length; i++) {
+                    const element = dataVS[i];
+                    if (element.emrdfk == 4246) {
+                        $scope.item.obj[1000154] = element.value //Pernapasan
+                        break;
+                    }
+                }
+            }
 
 
         }
