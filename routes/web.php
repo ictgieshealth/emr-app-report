@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Report\ReportController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,4 +25,21 @@ Route::prefix('report')->group(function () {
     Route::get('cetakTimeOutBedah', [ReportController::class, 'cetakTimeOutBedah']);
     Route::get('cetakSignOutBedah', [ReportController::class, 'cetakSignOutBedah']);
     Route::get('cetakResumeMedisRI', [ReportController::class, 'cetakResumeMedisRI']);
+    Route::get('storage/berkaspasien/{nocm}/{filename}', function ($nocm, $filename)
+    {
+        $path = public_path('BerkasPasien/'.$nocm.'/' . $filename);
+
+        if (!File::exists($path)) {
+            abort(404, 'File tidak ditemukan');
+        }
+
+        $file = File::get($path);
+        $type = File::mimeType($path);
+
+        $response = Response::make($file, 200);
+        $response->header("Content-Type", $type);
+
+        return $response;
+    });
 });
+
