@@ -1232,4 +1232,156 @@ class ReportController
         $username = 'asa';
         return view('report.resume-medis', compact('res', 'username', 'dataimg'));
     }
+
+
+    public function cetakResumeMedisRJ(Request $r)
+    {
+        $res['profile'] = DB::table('profile_m')->where('id', 44)->first();
+
+        $data = DB::table('resumemedis_t as rm')
+            ->select(
+                'pd.tglregistrasi',
+                'pd.tglpulang',
+                'rm.norec',
+                'rm.tglresume',
+                'ru.namaruangan',
+                'pg.namalengkap as namadokter',
+                'rm.ringkasanriwayatpenyakit',
+                'rm.pemeriksaanfisik',
+                'rm.pemeriksaanpenunjang',
+                'rm.hasilkonsultasi',
+                'rm.terapi',
+                'rm.diagnosisawal',
+                'rm.diagnosissekunder',
+                'rm.tindakanprosedur',
+                'rm.anamnesa',
+                'rm.pemeriksaan',
+                'rm.tindakanterapi',
+                'rm.diagnosacppt',
+                'rk.namarekanan',
+                'rm.kddiagnosisawal',
+                'rm.diagnosismasuk',
+                'rm.kddiagnosismasuk',
+                'rm.diagnosistambahan',
+                'rm.kddiagnosistambahan',
+                'rm.kddiagnosistambahan2',
+                'rm.kddiagnosistambahan3',
+                'rm.kddiagnosistambahan4',
+                'rm.alasandirawat',
+                'rm.diagnosacombo',
+                'dg1.kddiagnosa as kddiagnosa1',
+                'dg1.namadiagnosa as namadiagnosa1',
+                'dg2.kddiagnosa as kddiagnosa2',
+                'dg2.namadiagnosa as namadiagnosa2',
+                'dg3.kddiagnosa as kddiagnosa3',
+                'dg3.namadiagnosa as namadiagnosa3',
+                'dg4.kddiagnosa as kddiagnosa4',
+                'dg4.namadiagnosa as namadiagnosa4',
+                'dg5.kddiagnosa as kddiagnosa5',
+                'dg5.namadiagnosa as namadiagnosa5',
+                'dg6.kddiagnosa as kddiagnosa6',
+                'dg6.namadiagnosa as namadiagnosa6',
+                'rm.tglkontrolpoli',
+                'rm.rumahsakittujuan',
+                'rm.alergi',
+                'rm.diet',
+                'rm.instruksianjuran',
+                'rm.hasillab',
+                'rm.kondisiwaktukeluar',
+                'rm.pengobatandilanjutkan',
+                'rm.koderesume',
+                'rm.pegawaifk',
+                'pd.noregistrasi',
+                'pd.tglregistrasi',
+                'ps.nocm',
+                'rm.noregistrasifk',
+                'ps.namapasien',
+                'kp.kelompokpasien',
+                'ru.namaruangan',
+                'jk.jeniskelamin',
+                'ps.tgllahir'
+            )
+            ->Join('antrianpasiendiperiksa_t as apd', 'apd.norec', '=', 'rm.noregistrasifk')
+            ->Join('pasiendaftar_t as pd', 'pd.norec', '=', 'apd.noregistrasifk')
+            ->Join('kelompokpasien_m as kp', 'kp.id', '=', 'pd.objectkelompokpasienlastfk')
+            ->Join('pasien_m as ps', 'ps.id', '=', 'pd.nocmfk')
+            ->Join('jeniskelamin_m as jk', 'jk.id', '=', 'ps.objectjeniskelaminfk')
+            ->leftJoin('rekanan_m as rk', 'rk.id', '=', 'pd.objectrekananfk')
+            ->leftJoin('ruangan_m as ru', 'ru.id', '=', 'apd.objectruanganfk')
+            ->leftJoin('pegawai_m as pg', 'pg.id', '=', 'pd.objectpegawaifk')
+            ->leftJoin('diagnosa_m as dg1', 'dg1.id', '=', 'rm.kddiagnosismasuk')
+            ->leftJoin('diagnosa_m as dg2', 'dg2.id', '=', 'rm.kddiagnosisawal')
+            ->leftJoin('diagnosa_m as dg3', 'dg3.id', '=', 'rm.kddiagnosistambahan')
+            ->leftJoin('diagnosa_m as dg4', 'dg4.id', '=', 'rm.kddiagnosistambahan2')
+            ->leftJoin('diagnosa_m as dg5', 'dg5.id', '=', 'rm.kddiagnosistambahan3')
+            ->leftJoin('diagnosa_m as dg6', 'dg6.id', '=', 'rm.kddiagnosistambahan4')
+            ->where('rm.kdprofile', 44)
+            ->where('rm.statusenabled', true)
+            ->where('rm.norec',  $r['norec'])
+            ->where('rm.keteranganlainnya', 'RawatJalan');
+
+        $data = $data->first();
+        $item = $data;
+        $dataimg=null;
+        $diagnosistambahan = [];
+        $no = 0;
+        $result = array(
+            'norec' => $item->norec,
+            'tglregistrasi' => $item->tglregistrasi,
+            'tglpulang' => $item->tglpulang,
+            'kelompokpasien' => $item->kelompokpasien,
+            'tglresume' => $item->tglresume,
+            'namaruangan' => $item->namaruangan,
+            'namarekanan' => $item->namarekanan,
+            'namadokter' => $item->namadokter,
+            'ringkasanriwayatpenyakit' => $item->ringkasanriwayatpenyakit,
+            'pemeriksaanfisik' => $item->pemeriksaanfisik,
+            'pemeriksaanpenunjang' => $item->pemeriksaanpenunjang,
+            'hasilkonsultasi' => $item->hasilkonsultasi,
+            'terapi' => $item->terapi,
+            'diagnosismasuk' => $item->diagnosismasuk,
+            'kddiagnosismasuk' => array($item->kddiagnosismasuk  != null ? $item->kddiagnosismasuk : '-', $item->kddiagnosa1, $item->namadiagnosa1 != null ? $item->namadiagnosa1 : '-'),
+            'diagnosisawal' => $item->diagnosisawal,
+            'kddiagnosisawal' => array($item->kddiagnosisawal, $item->kddiagnosa2,  $item->namadiagnosa2),
+            'diagnosistambahan' => $item->diagnosistambahan,
+            'kddiagnosistambahan' => array($item->kddiagnosistambahan, $item->kddiagnosa3,  $item->namadiagnosa3),
+            'kddiagnosistambahan2' => array($item->kddiagnosistambahan2, $item->kddiagnosa4,  $item->namadiagnosa4),
+            'kddiagnosistambahan3' => array($item->kddiagnosistambahan3, $item->kddiagnosa5,  $item->namadiagnosa5),
+            'kddiagnosistambahan4' => array($item->kddiagnosistambahan4, $item->kddiagnosa6,  $item->namadiagnosa6),
+            'kddiagnosistambahanall' => implode(", ", $diagnosistambahan),
+            'diagnosissekunder' => $item->diagnosissekunder,
+            'tglkontrolpoli' => $item->tglkontrolpoli,
+            'rumahsakittujuan' => $item->rumahsakittujuan,
+            'tindakanprosedur' => $item->tindakanprosedur,
+            'alasandirawat' => $item->alasandirawat,
+            'alergi' => $item->alergi,
+            'diet' => $item->diet,
+            'instruksianjuran' => $item->instruksianjuran,
+            'hasillab' => $item->hasillab,
+            'kondisiwaktukeluar' => $item->kondisiwaktukeluar,
+            'pengobatandilanjutkan' => $item->pengobatandilanjutkan,
+            'koderesume' => $item->koderesume,
+            'pegawaifk' => $item->pegawaifk,
+            'noregistrasi' => $item->noregistrasi,
+            'nocm' => $item->nocm,
+            'namapasien' => $item->namapasien,
+            'noregistrasifk' => $item->pemeriksaan,
+            'jeniskelamin' => $item->jeniskelamin,
+            'tgllahir' => $item->tgllahir,
+            'anamnesa' => $item->anamnesa,
+            'pemeriksaan' => $item->pemeriksaan,
+            'diagnosacppt' => $item->diagnosacppt,
+            'terapitindakan' => $item->tindakanterapi,
+            'diagnosacombo' => $item->diagnosacombo ? '| '.$item->diagnosacombo : '',
+        );
+        $res['terapi'][] = array('tera' => 'asas');
+        $res['d'] = $result;
+        $username = 'asa';
+        $pageWidth = 1090;
+        $tgl = Carbon::now()->format('F j, Y');
+        return view(
+            'report.resume-medis-RJ',
+            compact('data', 'pageWidth', 'r', 'res', 'tgl','dataimg')
+        );
+    }
 }

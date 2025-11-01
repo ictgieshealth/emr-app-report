@@ -12,6 +12,7 @@ Route::get('/', function () {
 Route::prefix('report')->group(function () {
     Route::get('cetakAsesmenAwalKeperawatanIGD', [ReportController::class, 'cetakAsesmenAwalKeperawatanIGD']);
     Route::get('cetakAsesmenAwalKeperawatanRJ', [ReportController::class, 'cetakAsesmenAwalKeperawatanRJ']);
+    Route::get('cetakResumeMedisRJ', [ReportController::class, 'cetakResumeMedisRJ']);
     Route::get('cetakAsesmenAwalKebidananRawatJalan', [ReportController::class, 'cetakAsesmenAwalKebidananRawatJalan']);
     Route::get('cetak-asesmen-pra-anestesi', [ReportController::class, 'cetakAsesmenPraAnestesi']);
     Route::get('cetak-laporan-durante-anestesi-vital', [ReportController::class, 'cetakLaporanDuranteAnestesiVital']);
